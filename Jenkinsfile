@@ -56,3 +56,66 @@ pipeline {
         }
     }
 }
+
+
+// pipeline {
+//     agent any
+
+//     parameters {
+//         choice(
+//             name: 'REPOSITORIES', 
+//             choices: [
+//                     'repo1',
+//                     'repo2', 
+//                     'repo3'
+//                     ],
+//             description: 'Select repositories'
+//             multiSelect: true)
+//         choice(
+//             name: 'BRANCHES', 
+//             choices: [
+//                     'branch1',
+//                     'branch2',
+//                     'branch3'
+//                     ],
+//             description: 'Select branches'
+//             multiSelect: true)
+//     }
+
+
+//     stages {
+//         stage ('Env print') {
+//             steps {
+//                 script {
+//                 sh ```
+//                   echo $BRANCHES
+//                   echo $REPOSITORIES
+//                 ```
+//                 }
+//             }
+//         }
+//         stage('Checkout') {
+//             steps {
+//                 script {
+//                     gitBranch = "${params.BRANCHES}".trim()
+//                     gitRepo = "${params.REPOSITORIES}".trim()
+//                     checkout([$class: 'GitSCM', branches: [[name: gitBranch]], doGenerateSubmoduleConfigurations: false, extensions: [], userRemoteConfigs: [[url: "https://github.com/${gitRepo}.git"]]])
+//                 }
+//             }
+//         }
+
+//         stage('Merge to Master') {
+//             echo "Merging ${branch} into ${repo}'s master"
+//             when {
+//                 expression { params.BRANCHES && params.REPOSITORIES }
+//             }
+//             steps {
+//                 script {
+//                     sh "git checkout master"
+//                     sh "git merge ${gitBranch}"
+//                     sh "git push origin master"
+//                 }
+//             }
+//         }
+//     }
+// }
