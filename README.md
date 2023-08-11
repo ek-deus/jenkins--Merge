@@ -1,1 +1,1 @@
-# jenkins--Merge
+- Файлы `repo--requirements.txt` и `branch--requirements.txt` должны содержать список репозиториев и веток соответственно.
