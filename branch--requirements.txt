@@ -1,0 +1,35 @@
+https://github.com/ek-deus/Ansible.git:
+  34t43
+  dev
+  main
+  test
+
+https://github.com/ek-deus/Terraform.git:
+  main
+
+https://github.com/ek-deus/k3s--jenkins.git:
+  main
+
+https://github.com/ek-deus/Ansible--GitLabCI.git:
+  main
+
+https://github.com/ek-deus/jenkins--shared--libs--base.git:
+  main
+
+https://github.com/ek-deus/Project-temps.git:
+  main
+
+https://github.com/ek-deus/Gitea.git:
+  dev
+  kak-to-tak
+  main
+  master
+
+https://github.com/ek-deus/Docker--Dockerfile.git:
+  main
+
+https://github.com/ek-deus/k3s-developers.git:
+  dev-11
+  dev-12
+  dev-22
+  dev-33
