@@ -62,6 +62,46 @@ pipeline {
 //     agent any
 
 //     parameters {
+//         choice(name: 'REPOSITORIES', choices: readFile('repo-requirements.txt').split('\n'), description: 'Select repositories to merge')
+//         choice(name: 'BRANCHES', choices: readFile('branch-requirements.txt').split('\n'), description: 'Select branches to merge')
+//     }
+
+//     stages {
+//         stage('Merge Branches') {
+//             steps {
+//                 script {
+//                     def repos = params.REPOSITORIES.split(',')
+//                     def branches = params.BRANCHES.split(',')
+
+//                     for (repo in repos) {
+//                         for (branch in branches) {
+//                             // Получаем текущую ветку "master" из выбранного репозитория
+//                             def currentMaster = sh(script: "git ls-remote https://github.com/${repo}.git HEAD", returnStdout: true).trim()
+                            
+//                             // Сливаем выбранную ветку в "master"
+//                             sh """
+//                             git clone https://github.com/${repo}.git
+//                             cd ${repo}
+//                             git checkout ${branch}
+//                             git pull
+//                             git checkout ${currentMaster}
+//                             git merge ${branch} -m "Merge ${branch} into ${currentMaster}"
+//                             git push origin ${currentMaster}
+//                             """
+//                         }
+//                     }
+//                 }
+//             }
+//         }
+//     }
+// }
+
+
+
+// pipeline {
+//     agent any
+
+//     parameters {
 //         choice(
 //             name: 'REPOSITORIES', 
 //             choices: [
